@@ -1,0 +1,37 @@
+public class Main {
+
+	public static void main(String[] args) {
+		BankAccount ba=new BankAccount(200);
+		System.out.println(ba.getBalance());
+		ba.addMoney(100);
+		System.out.println(ba.getBalance());
+		ba.subMoney(250);
+		System.out.println(ba.getBalance());
+	}
+}
+
+
+public class BankAccount {
+	int balance;
+	public BankAccount(int balance) {
+		this.balance=balance;
+	}
+	
+	int getBalance() {
+		return balance;
+	}
+	void addMoney(int money) {
+		if(money>=0) {
+			this.balance+=money;
+		}else System.out.println("error");
+	}
+	
+	void subMoney(int money) {
+		if(money>=0) {
+			if(this.balance>=money)
+				this.balance-=money;
+			else System.out.println("nedostatno groshei na rahynky");
+		}else System.out.println("error");
+	}
+	
+}
